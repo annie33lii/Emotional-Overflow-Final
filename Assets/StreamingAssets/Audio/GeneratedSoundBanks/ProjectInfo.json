@@ -1,0 +1,36 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "taptapSpotlight2025_WwiseProject",
+   "GUID": "{1CE2A663-BE5D-47DC-85BF-C67D9FB25EF0}",
+   "Generator": "2024.1.8.8898"
+  },
+  "CacheRoot": "../../../../taptapSpotlight2025_WwiseProject/.cache",
+  "Platforms": [
+   {
+    "Name": "Mac",
+    "GUID": "{C2A411F8-0602-4A4D-BCD4-97821389BA5C}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "../../../../taptapSpotlight2025_WwiseProject/GeneratedSoundBanks/Mac"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{02AA2EBE-F59C-4B85-9772-2D4E4BE13FEB}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "../../../../taptapSpotlight2025_WwiseProject/GeneratedSoundBanks/Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{84661671-298A-4564-ADCD-3677C4C57C87}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{5BA06263-AEE5-6B7A-5DD5-9B5657F42E75}"
+ }
+}
