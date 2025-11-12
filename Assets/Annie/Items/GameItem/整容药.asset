@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263d7e96a05b449859b1767c5c6b66e8, type: 3}
   m_Name: "\u6574\u5BB9\u836F"
   m_EditorClassIdentifier: 
-  itemName: "\u6574\u5BB9\u836F"
+  itemName: Morph Potion
   itemType: 
   description: 
   icon: {fileID: 21300000, guid: 469aedd616c9e48b29077c0eceff0b20, type: 3}
