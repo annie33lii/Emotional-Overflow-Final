@@ -60455,7 +60455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6714149167539619413, guid: a77b7844667de4e159d62780ee435e7b, type: 3}
       propertyPath: groundLayer.m_Bits
-      value: 512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7964600338267599067, guid: a77b7844667de4e159d62780ee435e7b, type: 3}
       propertyPath: attackDelay
@@ -60479,7 +60479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7964600338267599067, guid: a77b7844667de4e159d62780ee435e7b, type: 3}
       propertyPath: enemyLayer.m_Bits
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8058496340694406687, guid: a77b7844667de4e159d62780ee435e7b, type: 3}
       propertyPath: m_Controller
