@@ -1,11 +1,11 @@
-整容店老板：哇哦，新面孔！
-玩家：……
-整容店老板：欢迎来到小店~穿过长长的黑暗也要光临的客人~
-玩家：……
-整容店老板：你可真是个少言寡语的人~
-整容店老板：来我这里一般都是听这里的居民介绍的，说吧，这位特别的客人，你需要什么？
-玩家：我是听说您这里有神奇效果的药水
-整容店老板：噢！我知道了！我这里确实有这样的东西，不过这可不是免费的。
-玩家：有什么神奇效果？要拿什么来换？
-整容店老板：(￣▽￣)真是位急性子的客人
-整容店老板：不如你直接看店里的介绍，喏，在这里。
+Cosmetic Shop Owner: Wow! A new face!
+Player: ……
+Cosmetic Shop Owner: Welcome to my little shop~ A guest who braved the long darkness to visit me~
+Player: ……
+Cosmetic Shop Owner: You’re quite the quiet one, aren’t you~
+Cosmetic Shop Owner: Most people come here because someone in town told them about me. So, tell me, my special guest — what are you looking for?
+Player: I heard you have potions with… magical effects.
+Cosmetic Shop Owner: Oh! I see! Indeed, I do have such things — but they don’t come for free.
+Player: What kind of magical effects? And what do you want in return?
+Cosmetic Shop Owner: Ahhh! What an impatient customer you are.
+Cosmetic Shop Owner: Why don’t you take a look at the shop’s descriptions yourself? Here, have a look.

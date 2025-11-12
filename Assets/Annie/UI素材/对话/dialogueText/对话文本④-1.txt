@@ -1,23 +1,23 @@
-普通居民1：哎哟！吓我一跳！你长得好奇怪哦！
-玩家：……
-普通居民1：啊，不好意思…没有说你丑的意思，嘿嘿，就是没见过你这样的家伙
-玩家：……这里是哪里？
-普通居民1：哎呀，你不知道这是哪里吗！
-玩家：我忘记了
-普通居民1：那你记性可真不好，咱这里叫Ⅰ-8010。
-玩家：啊？好奇怪的名字…
-普通居民1：嘿呀！你这个奇怪的人居然还说我们奇怪。
-玩家：…
-普通居民1：你要上哪儿去啊？
-玩家：嗯…先往上面走吧
-普通居民1：诶？去上面吗？
-普通居民1：那上面可不安全，黑暗里不知道有什么危险。
-玩家：…
-普通居民1：哎，看样子你是非要去。你等会儿，我给你拿个东西吧。
-普通居民1：喏，给你一个防身的棍子！这样去有底气一点！
-玩家：……谢谢你 (*°▽°)
-普通居民1：哇！看出来你努力在笑了！但好恐怖
-玩家：……
-普通居民1：哈哈哈！我乱说的！非常特别呢！
-普通居民1：不客气！注意安全！
-普通居民1：对了！还要小心守卫！ta们讨厌异样的事物。
+Resident 1: Whoa! You scared me! You look really strange!
+Player: ……
+Resident 1: Ah, sorry… I didn’t mean you’re ugly, hehe. I’ve just never seen someone like you before.
+Player: ……Where is this place?
+Resident 1: Huh? You don’t know where this is!
+Player: I forgot.
+Resident 1: Then your memory’s really bad. This place is called I-8010.
+Player: Huh? That’s such a weird name…
+Resident 1: Hey! You’re the weird one calling us weird!
+Player: …
+Resident 1: Where are you heading?
+Player: Hmm… I’ll go up first.
+Resident 1: Huh? Going up?
+Resident 1: It’s not safe up there. You never know what dangers lurk in the dark.
+Player: …
+Resident 1: Looks like you’re determined to go. Wait a sec, I’ll get you something.
+Resident 1: Here, take this stick for self-defense! You’ll feel a bit braver with it.
+Player: ……Thank you (*°▽°)
+Resident 1: Wow! I can tell you’re trying to smile! But that’s kind of scary.
+Player: ……
+Resident 1: Hahaha! I’m just kidding! You’re really unique!
+Resident 1: Don’t mention it! Stay safe out there!
+Resident 1: Oh, and be careful of the guards! They hate anything that looks… out of place.

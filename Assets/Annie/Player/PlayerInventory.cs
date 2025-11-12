@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private Dictionary<string, int> itemStorage = new Dictionary<string, int>();
-    private const string HealthFruitName = "生命果"; // heals the player when picked
-    private const string WoodenStickName = "木棍";   // equips a stick weapon
-    private const string DisguisePotionName = "整容药"; // toggles disguise state
+    private const string HealthFruitName = "Life Fruit"; // heals the player when picked
+    private const string WoodenStickName = "Wood Stick";   // equips a stick weapon
+    private const string DisguisePotionName = "Morph Potion"; // toggles disguise state
 
     private Playerhealth playerHealth;
     private Animator playerAnimator;

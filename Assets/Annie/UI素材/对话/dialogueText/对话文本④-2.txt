@@ -1,8 +1,8 @@
-普通居民2：哦！你怎么长成这副样子！真奇怪！
-玩家：……
-普通居民2：你这样子可交不到朋友，还会被当成危险份子！
-普通居民2：我认识一个奇怪的医生，上次我的鼻子歪了就是ta给我弄好的，听说ta那里还有神奇效果的药水，你可以去找ta看看。
-玩家：要怎么才能找到ta？
-普通居民2：喏，传过上面那一段长长的黑雾，就能找到了。
-玩家：谢谢…
-普通居民2：祝你好运！
+Resident 2: Oh! What happened to your face? You look so strange!
+Player: ……
+Resident 2: Looking like that, you won’t make any friends — people might even think you’re dangerous!
+Resident 2: But I know a rather odd doctor. Last time my nose got crooked, they fixed it for me. I heard they’ve got some kind of magical potion too — you should go see them.
+Player: How can I find them?
+Resident 2: Well, just go past that long stretch of dark fog up ahead — you’ll find them there.
+Player: …Thank you.
+Resident 2: Good luck!

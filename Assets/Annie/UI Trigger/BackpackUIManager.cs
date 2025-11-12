@@ -70,12 +70,12 @@ public class BackpackUIManager : MonoBehaviour
 
         if (items == null || items.Count == 0)
         {
-            inventoryText.text = "（背包为空）";
+            inventoryText.text = "（Backpack is Empty）";
             return;
         }
 
         System.Text.StringBuilder sb = new System.Text.StringBuilder();
-        sb.AppendLine("当前背包：\n");
+        sb.AppendLine("Currently in the Backpack: \n");
         foreach (var kvp in items)
         {
             sb.AppendLine($"{kvp.Key} ×{kvp.Value}");
