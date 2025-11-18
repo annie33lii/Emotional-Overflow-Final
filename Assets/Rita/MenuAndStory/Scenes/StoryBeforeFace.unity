@@ -343,13 +343,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyImage: {fileID: 1114954522}
   storySprites:
-  - {fileID: 21300000, guid: eed363f70e4e1d745b4ef43db953efb7, type: 3}
-  - {fileID: 21300000, guid: cbb60665a82b72f49ba0a71a49e1a5c1, type: 3}
-  - {fileID: 21300000, guid: 550f8bb7d5537664c8b68dce3577529c, type: 3}
-  - {fileID: 21300000, guid: b92bc8041b43d3240904ded3810d82f1, type: 3}
-  - {fileID: 21300000, guid: 195df54c953b45a4bab7a60098bc5704, type: 3}
-  - {fileID: 21300000, guid: 3ee96e9f1761a8d418918354360a6194, type: 3}
-  nextSceneName: New_Face
+  - {fileID: 21300000, guid: 6ec64735e96b69049b65d1bdd9dee84d, type: 3}
+  - {fileID: 21300000, guid: 7bf97eb77ad7c8b40994905c64c6b6a0, type: 3}
+  - {fileID: 21300000, guid: 0f36320ccf28a0d4d94f369d3bb9c4f4, type: 3}
+  - {fileID: 21300000, guid: 1c650727d035c714883dcb4ee3ad2099, type: 3}
+  nextSceneName: MapScene
 --- !u!1 &1114954521
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,19 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddf1c37ee8ead345a630ba42fa7a895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 96b797f49fba28048b85569766109de2, type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &1247360695
 Transform:
   m_ObjectHideFlags: 0
@@ -624,10 +609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b1a1cbf6144b740986df06ef4855eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  bOverrideScalingFactor: 0
-  scalingFactor: -1
-  listenerId: 0
 --- !u!114 &1946824633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,18 +621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace36b13228fee40b2037abe764ff55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  usePositionOffsetData: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  scalingFactor: 1
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

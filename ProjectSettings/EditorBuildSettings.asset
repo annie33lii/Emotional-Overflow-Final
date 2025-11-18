@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Rita/MenuAndStory/Scenes/MainMenu.unity
+    guid: 0ceac54767d74ae479ee14e4039b9fdd
+  - enabled: 1
+    path: Assets/Rita/MenuAndStory/Scenes/StoryBeforeFace.unity
+    guid: e850825a6b71cf149b4de4349f79623d
+  - enabled: 1
+    path: Assets/Rita/Map/Scenes/MapScene.unity
+    guid: a3a72333745daf941989a8bcff4eb9fd
   m_configObjects: {}
