@@ -8,11 +8,21 @@ public class HandNoseSkill : MonoBehaviour
     [Header("连接线材质（可空，会自动生成）")]
     public Material lineMaterial;
 
+    [Header("情绪光（自动获取 Player 上的 EmotionLightSkill）")]
+    public EmotionLightSkill emotionLight;   // ← 新增字段
+
     private LineRenderer lineRenderer;
     private bool isNoseActive = false;
 
     void Start()
     {
+        // -----------------------------
+        // 获取情绪光脚本
+        // -----------------------------
+        if (emotionLight == null)
+            emotionLight = FindObjectOfType<EmotionLightSkill>();
+        //（如果 Player 身上有就会自动找到）
+
         // -----------------------------
         // 确保 LineRenderer 存在
         // -----------------------------
@@ -20,10 +30,6 @@ public class HandNoseSkill : MonoBehaviour
         if (lineRenderer == null)
             lineRenderer = gameObject.AddComponent<LineRenderer>();
 
-        // -----------------------------
-        // 若材质未赋值 -> 自动分配默认材质
-        // （Sprite/Default 在所有 Unity 版本都存在）
-        // -----------------------------
         if (lineMaterial == null)
             lineMaterial = new Material(Shader.Find("Sprites/Default"));
 
@@ -42,7 +48,12 @@ public class HandNoseSkill : MonoBehaviour
             isNoseActive = true;
             lineRenderer.enabled = true;
             Debug.Log("👃 鼻子技能激活");
+
             ActivateGasBarriers(true);
+
+            // 💚 开启绿色情绪光
+            if (emotionLight != null)
+                emotionLight.ActivateNoseLight();
         }
 
         // 鼻子技能关闭
@@ -52,7 +63,12 @@ public class HandNoseSkill : MonoBehaviour
             lineRenderer.enabled = false;
             lineRenderer.positionCount = 0;
             Debug.Log("❌ 鼻子技能关闭");
+
             ActivateGasBarriers(false);
+
+            // 💚 关闭绿色情绪光
+            if (emotionLight != null)
+                emotionLight.DeactivateNoseLight();
         }
 
         if (isNoseActive)

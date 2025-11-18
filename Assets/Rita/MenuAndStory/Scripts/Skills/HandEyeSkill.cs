@@ -3,55 +3,52 @@ using UnityEngine.Rendering.Universal;
 
 public class HandEyeSkill : MonoBehaviour
 {
-    [Header("光圈参数")]
-    public Light2D playerLight;           // 手动或自动获取 Light2D
-    public float normalRadius = 1.5f;
-    public float extendedRadius = 4.0f;
+    [Header("Spot Light 2D")]
+    public Light2D spotLight;   // ← 这里绑定你的玩家聚光灯！
+
+    [Header("观察光圈设置")]
+    public float normalRadius = 1.5f;       // 默认黑暗里的小光圈
+    public float extendedRadius = 4.0f;     // 长按后变大的光圈
     public float transitionSpeed = 3f;
 
-    public float normalIntensity = 1.5f;
-    public float extendedIntensity = 3f;
+    public Color normalColor = new Color(1f, 0.9f, 0f, 1f);  // 黄色
+    public Color extendedColor = new Color(1f, 0.9f, 0f, 1f);
 
     private bool isExpanding = false;
 
     void Start()
     {
-        // 自动查找 Light2D（防止手动漏绑）
-        if (playerLight == null)
-            playerLight = GetComponentInChildren<Light2D>();
-
-        if (playerLight == null)
+        if (spotLight == null)
         {
-            Debug.LogWarning("❌ 没找到 Light2D，请在 Inspector 里手动拖入。");
-            this.enabled = false; // 防止 Update 出错
-            return;
+            spotLight = GetComponentInChildren<Light2D>();
+            if (spotLight == null)
+            {
+                Debug.LogWarning("❌ 没找到 Spot Light，请手动绑定！");
+                this.enabled = false;
+                return;
+            }
         }
     }
 
     void Update()
     {
-        // 鼠标左键按下 / 松开控制状态
+        // 鼠标左键控制扩光
         if (Input.GetMouseButtonDown(0))
             isExpanding = true;
+
         if (Input.GetMouseButtonUp(0))
             isExpanding = false;
 
-        // 如果光源存在，更新参数
-        if (playerLight != null)
-        {
-            float targetRadius = isExpanding ? extendedRadius : normalRadius;
-            float targetIntensity = isExpanding ? extendedIntensity : normalIntensity;
+        // 根据状态调整光照
+        float targetRadius = isExpanding ? extendedRadius : normalRadius;
 
-            playerLight.pointLightOuterRadius = Mathf.Lerp(
-                playerLight.pointLightOuterRadius,
-                targetRadius,
-                Time.deltaTime * transitionSpeed
-            );
-            playerLight.intensity = Mathf.Lerp(
-                playerLight.intensity,
-                targetIntensity,
-                Time.deltaTime * transitionSpeed
-            );
-        }
+        spotLight.pointLightOuterRadius = Mathf.Lerp(
+            spotLight.pointLightOuterRadius,
+            targetRadius,
+            Time.deltaTime * transitionSpeed
+        );
+
+        // 颜色保持黄色主题
+        spotLight.color = isExpanding ? extendedColor : normalColor;
     }
 }
