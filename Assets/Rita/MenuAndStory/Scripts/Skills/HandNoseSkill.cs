@@ -8,24 +8,19 @@ public class HandNoseSkill : MonoBehaviour
     [Header("连接线材质（可空，会自动生成）")]
     public Material lineMaterial;
 
-    [Header("情绪光（自动获取 Player 上的 EmotionLightSkill）")]
-    public EmotionLightSkill emotionLight;   // ← 新增字段
+    [Header("技能光控制器（SkillLightController）")]
+    public SkillLightController skillLight;
 
     private LineRenderer lineRenderer;
     private bool isNoseActive = false;
 
     void Start()
     {
-        // -----------------------------
-        // 获取情绪光脚本
-        // -----------------------------
-        if (emotionLight == null)
-            emotionLight = FindObjectOfType<EmotionLightSkill>();
-        //（如果 Player 身上有就会自动找到）
+        // 自动找到 SkillLightController（绑定在 Player 上）
+        if (skillLight == null)
+            skillLight = FindObjectOfType<SkillLightController>();
 
-        // -----------------------------
-        // 确保 LineRenderer 存在
-        // -----------------------------
+        // 初始化 LineRenderer
         lineRenderer = GetComponent<LineRenderer>();
         if (lineRenderer == null)
             lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -42,33 +37,27 @@ public class HandNoseSkill : MonoBehaviour
 
     void Update()
     {
-        // 鼻子技能开启
         if (Input.GetMouseButtonDown(1))
         {
             isNoseActive = true;
             lineRenderer.enabled = true;
-            Debug.Log("👃 鼻子技能激活");
+
+            // 💚 开启鼻子绿色技能光
+            skillLight.NoseSkill();
 
             ActivateGasBarriers(true);
-
-            // 💚 开启绿色情绪光
-            if (emotionLight != null)
-                emotionLight.ActivateNoseLight();
         }
 
-        // 鼻子技能关闭
         if (Input.GetMouseButtonUp(1))
         {
             isNoseActive = false;
             lineRenderer.enabled = false;
             lineRenderer.positionCount = 0;
-            Debug.Log("❌ 鼻子技能关闭");
+
+            // 💚 关闭技能光
+            skillLight.StopNoseSkill();
 
             ActivateGasBarriers(false);
-
-            // 💚 关闭绿色情绪光
-            if (emotionLight != null)
-                emotionLight.DeactivateNoseLight();
         }
 
         if (isNoseActive)
@@ -117,7 +106,7 @@ public class HandNoseSkill : MonoBehaviour
 
             if (sr != null)
                 sr.color = allowPass ?
-                    new Color(1, 1, 1, 0.3f) : // 半透明
+                    new Color(1, 1, 1, 0.3f) :
                     Color.white;
         }
     }
