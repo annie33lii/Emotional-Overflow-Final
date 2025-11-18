@@ -51,12 +51,6 @@ public class DialogueNPC : MonoBehaviour
 
     public virtual void Interact()
     {
-        if (playerInRange == true)
-        {
-            if (interactUI != null)
-                interactUI.SetActive(true);
-        }
-
         // Handle basic dialogue
         if (dialogueLines == null || dialogueLines.Length == 0)
         {
@@ -104,13 +98,13 @@ public class DialogueNPC : MonoBehaviour
         Debug.Log($"{npcName} 掉落了 {itemPrefabs.Count} 个物品!");
     }
 
-
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))// && Input.GetKeyDown(interactKey))
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            currentLine = 0;
+            if (interactUI != null)
+                interactUI.SetActive(true);
         }
     }
 
