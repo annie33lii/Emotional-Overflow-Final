@@ -59,7 +59,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (itemName == DisguisePotionName && abilityManager != null)
         {
-            abilityManager.isDisguised = true;
+            abilityManager.SetDisguised(true);
             Debug.Log("玩家使用整容药，进入伪装状态。");
         }
         else if (itemName == DisguisePotionName)

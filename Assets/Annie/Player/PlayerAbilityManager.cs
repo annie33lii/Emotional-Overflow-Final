@@ -14,6 +14,14 @@ public class PlayerAbilityManager : MonoBehaviour
     public bool isDisguised = false;
     public bool hasWeapon = false; // toggled when player equips a weapon such as the stick
 
+    [Header("Visual Feedback")]
+    [Tooltip("Purple fear particle effect that plays while the player is disguised.")]
+    [SerializeField] private ParticleSystem disguiseFearEffect;
+    [Tooltip("Optional anchor transform for the instantiated disguise effect.")]
+    [SerializeField] private Transform disguiseVFXAnchor;
+    private ParticleSystem disguiseFearEffectInstance;
+    private Coroutine disguiseRoutine;
+
     [Header("Attack Settings")]
     public float attackRange = 1f;
     public int attackDamage = 20;
@@ -28,19 +36,32 @@ public class PlayerAbilityManager : MonoBehaviour
     {
         return isDisguised;
     }
-    
-        public void ActivateDisguise(float duration)
+
+    public void ActivateDisguise(float duration)
     {
-        StartCoroutine(DisguiseRoutine(duration));
+        if (disguiseRoutine != null)
+            StopCoroutine(disguiseRoutine);
+
+        disguiseRoutine = StartCoroutine(DisguiseRoutine(duration));
+    }
+
+    public void SetDisguised(bool disguised)
+    {
+        if (disguiseRoutine != null)
+        {
+            StopCoroutine(disguiseRoutine);
+            disguiseRoutine = null;
+        }
+
+        ApplyDisguiseState(disguised, true);
     }
 
     private IEnumerator DisguiseRoutine(float duration)
     {
-        isDisguised = true;
-        Debug.Log("玩家已伪装！");
+        ApplyDisguiseState(true, true);
         yield return new WaitForSeconds(duration);
-        isDisguised = false;
-        Debug.Log("伪装效果结束。");
+        ApplyDisguiseState(false, true);
+        disguiseRoutine = null;
     }
 
     void Start()
@@ -50,6 +71,8 @@ public class PlayerAbilityManager : MonoBehaviour
         inventory = GetComponent<PlayerInventory>();
         animator = GetComponent<Animator>();
         Debug.Log("Animator Controller at Start: " + animator.runtimeAnimatorController?.name);
+        InitializeDisguiseVFX();
+        SyncDisguiseVisuals();
     }
 
     void Update()
@@ -123,6 +146,80 @@ public class PlayerAbilityManager : MonoBehaviour
                 Debug.Log("Enemy hit successfully!");
             }
         }
+    }
+
+    private void ApplyDisguiseState(bool disguised, bool logToConsole)
+    {
+        if (isDisguised == disguised)
+        {
+            UpdateDisguiseVFX(isDisguised);
+            return;
+        }
+
+        isDisguised = disguised;
+
+        if (logToConsole)
+            Debug.Log(disguised ? "玩家已伪装！" : "伪装效果结束。");
+
+        UpdateDisguiseVFX(isDisguised);
+    }
+
+    private void InitializeDisguiseVFX()
+    {
+        if (disguiseFearEffect == null)
+        {
+            Debug.LogWarning("Disguise fear effect is not assigned. Please create a particle child and drag it onto PlayerAbilityManager.");
+            return;
+        }
+
+        if (disguiseFearEffectInstance == null)
+        {
+            disguiseFearEffectInstance = disguiseFearEffect;
+
+            Transform parent = disguiseVFXAnchor != null ? disguiseVFXAnchor : transform;
+            if (disguiseFearEffectInstance.transform.parent != parent)
+            {
+                disguiseFearEffectInstance.transform.SetParent(parent);
+                disguiseFearEffectInstance.transform.localPosition = Vector3.zero;
+                disguiseFearEffectInstance.transform.localRotation = Quaternion.identity;
+                disguiseFearEffectInstance.transform.localScale = Vector3.one;
+            }
+        }
+
+        disguiseFearEffectInstance.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        disguiseFearEffectInstance.gameObject.SetActive(false);
+    }
+
+    private void UpdateDisguiseVFX(bool disguised)
+    {
+        if (disguiseFearEffectInstance == null)
+        {
+            InitializeDisguiseVFX();
+
+            if (disguiseFearEffectInstance == null)
+                return;
+        }
+
+        if (disguised)
+        {
+            if (!disguiseFearEffectInstance.gameObject.activeSelf)
+                disguiseFearEffectInstance.gameObject.SetActive(true);
+
+            if (!disguiseFearEffectInstance.isPlaying)
+                disguiseFearEffectInstance.Play();
+        }
+        else
+        {
+            if (disguiseFearEffectInstance.isPlaying)
+                disguiseFearEffectInstance.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            disguiseFearEffectInstance.gameObject.SetActive(false);
+        }
+    }
+
+    private void SyncDisguiseVisuals()
+    {
+        UpdateDisguiseVFX(isDisguised);
     }
 
     // =====================
