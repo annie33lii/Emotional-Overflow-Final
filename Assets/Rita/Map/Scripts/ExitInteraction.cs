@@ -6,9 +6,8 @@ using UnityEngine.Video;
 public class ExitInteraction : MonoBehaviour
 {
     [Header("结局视觉元素")]
-    public GameObject endingImage;     // 🎨 静态结局图
     public Image fadeImage;            // 🖤 黑幕
-    public VideoPlayer endingVideo;    // 🎬 结局视频
+    public VideoPlayer endingVideo;    // 🎬 结局视频（直接播放）
 
     [Header("UI 提示")]
     public GameObject notEnoughPanel;  // 🚫 材料不足提示图片（默认隐藏）
@@ -57,7 +56,7 @@ public class ExitInteraction : MonoBehaviour
             playerInventory.RemoveItem("Flow Stone", 1);
             playerInventory.RemoveItem("Void Stone", 2);
 
-            // ✅ 播放结局流程
+            // ✅ 播放结局流程（直接黑幕→视频）
             StartCoroutine(PlayEndingSequence());
         }
         else
@@ -72,14 +71,11 @@ public class ExitInteraction : MonoBehaviour
 
     IEnumerator PlayEndingSequence()
     {
-        // 1️⃣ 显示静态图
-        endingImage.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-
-        // 2️⃣ 画面渐黑
+        // 1️⃣ 黑幕渐黑
         float duration = 2.5f;
         float t = 0;
         Color c = fadeImage.color;
+
         while (t < duration)
         {
             t += Time.deltaTime;
@@ -88,14 +84,14 @@ public class ExitInteraction : MonoBehaviour
             yield return null;
         }
 
-        // 3️⃣ 播放结局视频
+        // 2️⃣ 播放结局视频
         if (endingVideo != null)
         {
             endingVideo.Play();
             yield return new WaitForSeconds((float)endingVideo.length);
         }
 
-        // 4️⃣ 结束游戏
+        // 3️⃣ 退出游戏
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
