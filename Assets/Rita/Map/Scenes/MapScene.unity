@@ -7292,7 +7292,7 @@ MonoBehaviour:
   endingImage: {fileID: 1141711828}
   fadeImage: {fileID: 1285808363}
   endingVideo: {fileID: 969811143}
-  notEnoughPanel: {fileID: 1700428932}
+  notEnoughPanel: {fileID: 1638653487}
 --- !u!61 &1596097617
 BoxCollider2D:
   m_ObjectHideFlags: 0

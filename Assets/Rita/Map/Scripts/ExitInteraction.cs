@@ -46,16 +46,16 @@ public class ExitInteraction : MonoBehaviour
     {
         if (playerInventory == null) return;
 
-        bool hasAll = playerInventory.HasItem("白水晶", 2)
-                   && playerInventory.HasItem("紫水晶", 1)
-                   && playerInventory.HasItem("黑曜石", 2);
+        bool hasAll = playerInventory.HasItem("Calm Stone", 2)
+                   && playerInventory.HasItem("Flow Stone", 1)
+                   && playerInventory.HasItem("Void Stone", 2);
 
         if (hasAll)
         {
             // ✅ 扣除材料
-            playerInventory.RemoveItem("白水晶", 2);
-            playerInventory.RemoveItem("紫水晶", 1);
-            playerInventory.RemoveItem("黑曜石", 2);
+            playerInventory.RemoveItem("Calm Stone", 2);
+            playerInventory.RemoveItem("Flow Stone", 1);
+            playerInventory.RemoveItem("Void Stone", 2);
 
             // ✅ 播放结局流程
             StartCoroutine(PlayEndingSequence());
